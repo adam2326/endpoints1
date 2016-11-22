@@ -1,0 +1,15 @@
+
+application: cloud_training-144023 
+version: alpha-endpoints1
+runtime: python27
+api_version: 1
+threadsafe: True
+
+handlers:
+- url: /_ah/spi/.*
+  script: myapis.app
+  secure: always
+
+libraries:
+- name: endpoints
+  version: 1.0
