@@ -18,7 +18,7 @@ class statistical_tests(remote.Service):
 	"""statistical test API v1"""
 
 	# define a specific statistical test - t-test for two sample means
-	@endpoints.method(message_types.VoidMessage , name='ttest_for_two_sample_means', path='ttest', method='GET'):
+	@endpoints.method(message_types.VoidMessage, text_response_only, name='ttest_for_two_sample_means', path='ttest', http_method='GET'):
 	def (self, request):
 		"""docs go here"""
 		return text_response_only(resp="hello ttester")
