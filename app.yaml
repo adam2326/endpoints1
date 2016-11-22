@@ -1,7 +1,6 @@
 
-application: cloud-training-144023
+application: machine-learning-backend
 version: alpha-endpoints1
-module: endpointsapi
 runtime: python27
 api_version: 1
 threadsafe: True
