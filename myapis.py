@@ -5,22 +5,17 @@ from protorpc import message_types
 from protorpc import remote
 
 
-
-# create the different types of responses to send
-class text_response_only(messages.Message):
-	"""String that stores a message."""
-	resp = messages.StringField(1)
+class Hello(messages.Message):
+    """String that stores a message."""
+    greeting = messages.StringField(1)
 
 
-# create an overall statistical text API class
-@endpoints.api(name='statistical_tests', version='v1')
-class statistical_tests(remote.Service):
-	"""statistical test API v1"""
+@endpoints.api(name='helloworldendpoints', version='v1')
+class HelloWorldApi(remote.Service):
+    """Helloworld API v1."""
 
-	# define a specific statistical test - t-test for two sample means
-	@endpoints.method(message_types.VoidMessage, text_response_only, name='ttest_for_two_sample_means', path='ttest', http_method='GET'):
-	def (self, request):
-		"""docs go here"""
-		return text_response_only(resp="hello ttester")
+    @endpoints.method(message_types.VoidMessage, Hello, path = "sayHello", http_method='GET', name = "sayHello")
+    def say_hello(self, request):
+      return Hello(greeting="Hello Adam's World")
 
-app = endpoints.api_server([statistical_tests])
+app = endpoints.api_server([HelloWorldApi])
